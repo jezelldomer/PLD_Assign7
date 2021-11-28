@@ -3,8 +3,10 @@
 
 import sys
 
-print ("These are the CRITERIA FOR A VALID PASSWORD:\n   a. Greater than 15 letters \n   b. Have at least one capital letter\n   c. Have at least one number\n   d. Have at least one special char (!@#$%^&*()_+ etc)\n" )
-passw = input("Enter your PASSWORD in the space provided below.\n")
+print ("\033[1;35;40m╔═══════════════════════════════════════════════════════════════════════╗")
+print ("\033[1;35;40m                 These are the CRITERIA FOR A VALID PASSWORD:\n   \033[0;35;40ma. Greater than 15 letters \n   b. Have at least one capital letter\n   c. Have at least one number\n   d. Have at least one special char (!@#$%^&*`~()-_+=\/{}'[]|;:,<>.?)" )
+print ("\033[1;35;40m╚═══════════════════════════════════════════════════════════════════════╝\n")
+passw = input("\033[1;37;3mEnter your PASSWORD\n »•»\033[1;37;40m ")
 
 def _passw():
     _letters = 0
@@ -13,7 +15,7 @@ def _passw():
             count = _letters + 1
             _letters += 1
         if count <= 15:
-            print("\nYour Password is INVALID. \nOne of the criterias (Criteria A) is not met. \nPlease read the criteria and try again.\n")
+            print("\n\033[0;31;40mYour Password is \033[1;31;3mINVALID. \033[0;31;40m\nOne of the criterias (Criteria A) is not met. \nPlease read the criteria and try again.\n")
             sys.exit
         else:
             break
@@ -29,21 +31,19 @@ def _passw():
         if index.isupper() == True:
             None
         else:
-            print("\nYour Password is INVALID. \nOne of the criterias (Criteria B) is not met. \nPlease read the criteria and try again.\n")
+            print("\n\033[0;31;40mYour Password is \033[1;31;3mINVALID. \033[0;31;40m\nOne of the criterias (Criteria B) is not met. \nPlease read the criteria and try again.\n")
             sys.exit()
     # Criteria C
     digitnum = False
     while not(digitnum):
         for index in passw:
-            if index.isdigit():
+            if index.isdigit() or index.isnumeric():
                 digitnum = True
                 break
             else:
                 continue
-        if (index.isdigit()) == True:
-            None
         else:
-            print("\nYour Password is INVALID. \nOne of the criterias (Criteria C) is not met. \nPlease read the criteria and try again.\n")     
+            print("\n\033[0;31;40mYour Password is \033[1;31;3mINVALID. \033[0;31;40m\nOne of the criterias (Criteria C) is not met. \nPlease read the criteria and try again.\n")     
             sys.exit()
     # Criteria D
     spcletter = False
@@ -59,14 +59,14 @@ def _passw():
         if index in "!@#$%^&*`~()-_+=\/{}'[]|;:,<>.?":
             None
         elif index.isspace():
-            space = '\nYour Password must not contain a space. PASSWORD is INVALID. \nPlease try again.\n'
+            space = '\n\033[0;31;40mYour Password must not contain a space. PASSWORD is \033[1;31;40mINVALID. \033[0;31;40m\nPlease try again.\n'
             print(space)
             sys.exit()    
         else:
-            print("\nYour Password is INVALID. \nOne of the criterias (Criteria C) is not met. \nPlease read the criteria and try again.\n")
+            print("\n\033[0;31;40mYour Password is \033[1;31;3mINVALID. \033[0;31;40m\nOne of the criterias (Criteria C) is not met. \nPlease read the criteria and try again.\n")
             sys.exit() 
 
-print (f"Your password is {passw}. Password is VALID. ")
+print (f"\n\033[0;32;40m       Your password is \033[0;33;40m{passw} \033[1;32;40m\n                  Password is VALID. ")
     
     
 final = _passw()            
